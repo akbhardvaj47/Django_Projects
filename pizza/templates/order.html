@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block start %}
+<div class="container mt-5">
+    <h2 class="mb-4">Shopping Cart</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered align-middle text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>S.No</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ forloop.counter }} </td>
+                    
+                    <td>{{ order.get_cart_total }}</td>
+                    <td>True</td>
+                    <td>{{order.created_at}}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <b>Grand Total</b>
+        <p> {{cart.get_cart_total}} </p>
+    </div>
+</div>
+{% endblock %}
