@@ -1,0 +1,119 @@
+{% extends "base/base.html" %}
+{% block start %}
+{% load static %}
+
+<section class="section-content padding-y bg">
+  <div class="container">
+    <div class="card">
+      <div class="row no-gutters">
+        <aside class="col-md-6">
+          <article class="gallery-wrap">
+            <div class="img-big-wrap">
+              <div>
+                <a href="#"><img src="{{ product.product_images.first.image.url }}"></a>
+              </div>
+            </div>
+
+            <div class="thumbs-wrap">
+              {% for image in product.product_images.all %}
+              <a href="#" class="item-thumb">
+                <img src="{{ image.image.url }}">
+              </a>
+              {% endfor %}
+            </div>
+          </article>
+        </aside>
+
+        <main class="col-md-6 border-left">
+          <article class="content-body">
+            <h2 class="title">{{ product.product_name }}</h2>
+
+            <!-- Product Rating Section -->
+            <div class="rating-wrap my-3">
+              <ul class="rating-stars">
+                <li style="width:80%" class="stars-active">
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </li>
+                <li>
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </li>
+              </ul>
+              <small class="label-rating text-muted">132 reviews</small>
+              <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders </small>
+            </div>
+
+            <!-- Product Price -->
+            <div class="mb-3">
+              <var class="price h4">
+                ${{ updated_price }}.00
+              </var>
+              <span class="text-muted">/per kg</span>
+            </div>
+
+            <p>{{ product.product_desc }}</p>
+
+            <dl class="row">
+              <dt class="col-sm-3">Model#</dt>
+              <dd class="col-sm-9">Odsy-1000</dd>
+
+              <dt class="col-sm-3">Color</dt>
+              <dd class="col-sm-9">Brown</dd>
+
+              <dt class="col-sm-3">Delivery</dt>
+              <dd class="col-sm-9">Russia, USA, and Europe </dd>
+            </dl>
+
+            <hr>
+
+            <!-- Product Options: Size and Color Selection -->
+            <div class="form-row">
+              <div class="form-group col-md">
+                <label>Select size</label>
+                <div class="mt-1">
+                  {% for size in product.size_variant.all %}
+                  <label class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="size_{{ size.id }}" name="select_size" value="{{ size.size_name }}"
+                      {% if selected_size == size.size_name %} checked {% endif %}
+                      class="custom-control-input">
+                    <div class="custom-control-label">{{ size.size_name }}</div>
+                  </label>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <div class="form-group col-md">
+                <label>Select color</label>
+                <div class="mt-1">
+                  {% for color in product.color_variant.all %}
+                  <label class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="color_{{ color.id }}" name="select_color" value="{{ color.color_name }}"
+                      {% if selected_color == color.color_name %} checked {% endif %}
+                      class="custom-control-input">
+                    <div class="custom-control-label">{{ color.color_name }}</div>
+                  </label>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button id="add-to-cart" class="btn btn-outline-primary">
+              <span class="text">Add to cart</span>
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+            <button id="buy-now" class="btn btn-primary">
+              <span class="text">Buy Now</span>
+              <i class="fas fa-bolt"></i>
+            </button>
+          </article>
+        </main>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
