@@ -1,0 +1,33 @@
+
+{% include 'header.html'%}
+    <!-- <h1>{{ name }}</h1> -->
+    <h2>This is Home Page</h2> 
+
+
+    {#  If with for loop  #}
+
+    {% for i in numbers %}    {# This is for loop #}
+        {% if i > 20 %}        {# This is if statement#}
+        <div>{{i}}</div>
+        {% endif %}{# end if #}
+    {% endfor %}                {# end for loop#}
+
+<table border='2' cellpadding='10'>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Age</th>
+    </tr>
+
+  {#  Use for loop in Django Templates  #}
+  {% for i in object %}
+    <tr>
+      <td>{{i.Name}}</td>
+      <td>{{i.Phone}}</td>
+      <td>{{i.Age}}</td>
+    </tr>
+  {% endfor %}
+  {#  End for Loop  #}
+
+</body>
+</html>

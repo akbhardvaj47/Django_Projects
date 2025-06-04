@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="more_content" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+            <div class="about_me" style="flex: 1 1 50%; min-width: 280px; text-align: left; padding-right: 20px;">
+                <h1 style="text-align: center; font-size: 3rem; margin-bottom: 20px;">{{ news_details.news_title }}</h1>
+                <p>{{ news_details.news_desc | safe }}</p>  <!-- Adjust this depending on your model fields -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

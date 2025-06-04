@@ -1,0 +1,128 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Navbar Styles */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #333;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+.right_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 50px;
+}
+
+.left_sidebar {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+}
+
+.left_sidebar .start_span {
+    font-size: 1.5rem;
+    color: #777;
+}
+
+.left_sidebar .my_name {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.left_sidebar .work {
+    font-size: 2rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.left_sidebar button {
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.left_sidebar button:hover {
+    background-color: #004c99;
+}
+
+.right_sidebar {
+    flex: 1;
+    text-align: center;
+}
+
+.right_sidebar img {
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .right_container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .left_sidebar {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .left_sidebar .my_name {
+        font-size: 2.5rem;
+    }
+
+    .left_sidebar .work {
+        font-size: 1.8rem;
+    }}

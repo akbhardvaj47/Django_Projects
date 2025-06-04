@@ -1,0 +1,19 @@
+<!-- navbar.html -->
+<!-- Navbar Start -->
+<nav class="main-navbar">
+    <div class="logo">
+        <a href="#">Logo</a>
+    </div>
+    <button class="navbar-toggle" style="display: none;">☰</button>
+
+    <!-- Passing URL to anchor tag using URL -->
+    <ul class="navbar">
+        <li class="{% if request.path == '/' %} active{% endif %}"><a href="/">Home</a></li>
+        <li class="{% if request.path == '/about/' %} active{% endif %}"><a href="/about">About</a></li>
+        <li class="{% if request.path == '/projects/' %} active{% endif %}"><a href="/projects">Projects</a></li>
+        <li class="{% if request.path == '/skills/' %} active{% endif %}"><a href="/skills">Skills</a></li>
+        <li class="{% if request.path == '/contact/' %} active{% endif %}"><a href="/contact">Contact</a></li>
+    </ul>
+
+</nav>
+<!-- Navbar End -->

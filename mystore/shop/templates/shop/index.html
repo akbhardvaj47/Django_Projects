@@ -1,0 +1,55 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block body %}
+
+<div id="demo" class="carousel slide container" data-bs-ride="carousel">
+
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+        {% for i in range %}
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="{{ i }}" 
+                class="{% if forloop.first %}active{% endif %}" aria-label="Slide {{ i }}"></button>
+        {% endfor %}
+    </div>
+
+    <!-- Carousel Items -->
+    <div class="carousel-inner no-padding">
+        {% for i in slides %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="row">
+                {% for product in i %}
+                <div class="col-xs-3 col-sm-4 col-md-3">
+                    <div class="card mb-3" style="width: 18rem;">
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.product_name }}">
+                        {% else %}
+                        <img src="{% static 'default.jpg' %}" class="card-img-top" alt="No image">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.product_name }}</h5>
+                            <p class="card-text">{{ product.product_desc }}</p>
+                            <a href="#" class="btn btn-primary">Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Carousel Controls -->
+    <div class="d-flex justify-content-between mt-3">
+        <a class="bg-primary" href="#demo" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="bg-primary" href="#demo" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

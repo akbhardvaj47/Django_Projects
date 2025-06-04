@@ -1,0 +1,14 @@
+I learn=>
+1.  how to create django project (django-admin startproject projectname)
+
+2. how to run project (python manage.py runserver || 8000)
+
+3. how to migrate dbsqlite3 default database (python manage.py migrate)
+
+4. how to create super user to enter in admin area (python manage.py createsuperuser)
+
+5. how to use urls and views and display text on browser.
+
+6. create urls and dynamic urls with datatype int str and slug
+
+7. 

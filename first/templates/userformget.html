@@ -1,0 +1,29 @@
+{% include 'header.html' %}
+<div class="container">
+    <div class="row justify-content-center">
+
+        <!-- Take values from user user by get method  -->
+        <div class="col-6">
+            <h1 class="text-center">This User Form Using GET </h1>
+            <form method="GET">
+                <div>
+                    <label for="">Value1</label>
+                    <input type="text" name="num1" id="" class="form-control">
+                </div>
+                <div>
+                    <label for="">Value2</label>
+                    <input type="text" name="num2" id="" class="form-control">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary my-2">Save</button>
+                </div>
+                <div>
+                    <input type="text" name="" id="" value="{{out}}" class="form-control" placeholder="Output">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+<!-- Take values from user user by get method  -->
