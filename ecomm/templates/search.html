@@ -1,0 +1,33 @@
+{% extends "base/base.html" %}
+{% block start %}
+{% load static %}
+
+<div class="container mt-5 pt-5">
+    <h4 class="mb-4">Search Results{% if keyword %} for "<i>{{ keyword }}</i>"{% endif %}</h4>
+
+    <div class="row">
+        {% if products %}
+            {% for i in products %}
+                <div class="col-md-3 mb-4">
+                    <figure class="card card-product-grid">
+                        <div class="img-wrap">
+                            <img src="{{ i.image.url }}" alt="{{ i.product_name }}" class="img-fluid">
+                        </div>
+                        <figcaption class="info-wrap border-top p-2">
+                            <a href="{% url 'product_detail' i.slug %}" class="title d-block">
+                                <b>{{ i.product_name }}</b>
+                            </a>
+                            <div class="price mt-2">${{ i.price }}.00</div>
+                        </figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p class="text-muted">No products found matching your search.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

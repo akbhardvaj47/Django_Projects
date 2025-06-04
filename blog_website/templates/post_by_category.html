@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<main role="main" class="container-fluid p-0">
+  <h2 class="mb-4 bg-secondary p-2 px-5"><span class="text-warning">Posts in Category:</span> {{ category.category_name }}</h2>
+  <div class="row px-5">
+    {% for post in category_posts %}
+    
+    <div class=" {% if category_posts|length == 1 %} col-md-12 {% else %} col-md-6 {% endif %} blog-main">
+      <div class="blog-post mb-5">
+        <h2 class="blog-post-title">
+          <a href="{% url 'blog_view' post.slug %}">{{ post.title }}</a>
+        </h2>
+        <p class="blog-post-meta">
+          {{ post.created_at|timesince }} ago by <a href="#">{{ post.author }}</a>
+        </p>
+        {% if post.blog_image %}
+        <img src="{{ post.blog_image.url }}" style="width: 100%; height: 40vh;" alt="{{ post.title }}" class="img-fluid mb-2">
+        {% endif %}
+        <p>{{ post.short_description|truncatewords:25 }}</p>
+        <p>{{ post.blog_body|truncatewords:30 }}</p>
+        <a href="{% url 'blog_view' post.slug %}" class="btn btn-sm btn-outline-primary">Read more</a>
+      </div>
+    </div>
+    {% empty %}
+    <p>No posts found in this category.</p>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}

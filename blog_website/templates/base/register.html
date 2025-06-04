@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<main role="main" class="container py-5 shadow-lg">
+  <div class="row justify-content-center">
+    <div class="col-md-6 m-auto">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center">
+          <h4>Create an Account</h4>
+        </div>
+        <div class="card-body">
+
+          <!-- Django Form Start -->
+          <form method="POST">
+            {% csrf_token %}
+            {{form | crispy }}
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+          <!-- Django Form End -->
+
+        </div>
+        <div class="card-footer text-center">
+          Already have an account? <a href="{% url 'login' %}">Login here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
