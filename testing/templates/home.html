@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-around;
+            background: #000;
+            padding: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        marquee {
+            padding: 20px;
+            background: red;
+            color: white;
+            font-size: 30px;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            width: 80%;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="alternate" direction="left" onmouseover="stop()" onmouseout="start()">
+        {% for i in project_items %}
+        <a href="{% url 'project_details' slug=i.project_slug %}">{{ i.project_title }}</a>
+        {% endfor %}
+    </marquee>
+
+    <nav>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Project</a></li>
+            <li><a href="">Service</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        <h1>Home Page</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta corporis natus placeat obcaecati expedita accusantium numquam, nisi commodi unde quos nulla voluptatibus amet fuga ullam distinctio, quibusdam nemo sunt delectus ea dolore nam aliquid alias! Nam, eos doloribus assumenda rem vitae illum quaerat minima ipsam accusantium neque veritatis. Odit libero tenetur cum doloremque accusantium corporis iure, earum asperiores, necessitatibus nesciunt atque excepturi, iusto corrupti nobis error rem iste minus. Quaerat sapiente, animi dignissimos esse qui repellat ab pariatur quo sed commodi, at quam odio. Consequatur doloribus ut eveniet, unde non sapiente quam odio? Libero consequatur modi exercitationem illo asperiores maiores!</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block start %}
+<div class="container mt-5">
+    <h2 class="mb-4">Checkout Summary</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Hello, {{ user.username }}</h5>
+            <p class="card-text">You're about to place an order for the following:</p>
+
+            <ul class="list-group mb-3">
+                {% for item in cart_items %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ item.pizza.pizza_name }} x {{ item.quantity }}
+                    <span>${{ item.pizza.price|floatformat:2 }}</span>
+                </li>
+                {% endfor %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <strong>Total</strong>
+                    <strong>${{ cart.get_cart_total|floatformat:2 }}</strong>
+                </li>
+            </ul>
+
+            <!-- Only show the form if the payment_url exists -->
+            {% if payment_url %}
+            <div class="text-end">
+                <!-- <form action="{{ payment_url }}" method="POST"> -->
+                    {% csrf_token %}
+                    <a type="submit" href="{{ payment_url }}" class="btn btn-success">Proceed to Payment</a>
+                <!-- </form> -->
+            </div>
+            <!-- {% else %}
+            <p>Click below to proceed to payment.</p>
+            <form action="/checkout/" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Proceed to Payment</button>
+            </form> -->
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

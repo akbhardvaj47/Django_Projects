@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ title }}</title>
+</head>
+
+<body>
+    <h1>
+        This is home page
+    </h1>
+
+    <h2>Course List:</h2>
+    {% for i in course_list %}
+    <div>
+        {{ i }}
+    </div>
+    {% endfor %}
+
+    <h2>Student Details:</h2>
+    <table border="1" cellpadding="20px">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+        </tr>
+        {% for d in student_details %}
+        <tr>
+            <td>{{ d.Name }}</td>  
+            <td>{{ d.Phone }}</td> 
+        </tr>
+        {% endfor %}
+    </table>
+{% if numbers|length > 0 %}
+    {% for n in numbers %}
+    {% if n > 30 %}
+        <div>{{ n }}</div>
+        {% endif %}
+        {% endfor %}
+    {% else %}
+        <div>Number Not Found</div>
+    {% endif %}
+
+</body>
+
+</html>

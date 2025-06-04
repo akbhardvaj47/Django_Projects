@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<marquee behavior="alternate" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+    {% for i in news %}
+    <a href="{% url 'news_details' news_id=i.id %}">{{ i.news_title }}</a>
+    {% endfor %}
+</marquee>
+
+<h2 class="page-title">My Projects</h2>
+
+{% load static %}
+<div class="project_container">
+    {% for i in projects %}
+    <div class="card">
+        <!-- Handling missing project image with a default image -->
+        <img src="{{ i.project_img.url|default:'/static/img/default-image.jpg' }}" alt="{{ i.project_name }}" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">{{ i.project_name }}</h5>
+            <p class="card-text">{{ i.project_desc }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

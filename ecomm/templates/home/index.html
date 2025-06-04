@@ -1,0 +1,26 @@
+{% extends "base/base.html"%}
+{% block start %}
+{% load static %}
+
+<div class="container mt-5 pt-5">
+    <div class="row">
+
+        <!-- This page is render by home app view -->
+        {% for i in products %}
+        <div class="col-md-3">
+            <figure class="card card-product-grid">
+                <div class="img-wrap"> <img src="/media/{{i.image}}"> </div>
+                <figcaption class="info-wrap border-top">
+                    <a href="{% url 'product_detail' i.slug %}" class="title">
+                        <b>{{i.product_name}}</b></a>
+                    <div class="price mt-2">${{i.price}}.00</div>
+                </figcaption>
+            </figure>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,9 @@
+    <!-- Passing url to anchor tag using python name and url tag -->
+    <!-- home, skills, about, projects etc are name that is in urls.py -->
+    <ul class="navbar">
+        <li><a href="{% url 'home' %}">Home</a></li>  
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'projects' %}">Projects</a></li>
+        <li><a href="{% url 'skills' %}">Skills</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
