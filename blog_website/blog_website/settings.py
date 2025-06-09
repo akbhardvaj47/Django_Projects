@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blogs',
     'crispy_forms',
     "crispy_bootstrap4",
+    'dashboard'
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,5 @@ MEDIA_ROOT=BASE_DIR/'media'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+LOGIN_URL = 'login'
